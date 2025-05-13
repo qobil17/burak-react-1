@@ -11,14 +11,14 @@ const homePageSlice = createSlice({
     name: "homePage",
     initialState,
     reducers: {
-        setPopularDishes: (sate, action) => {
-            sate.popularDishes = action.payload;
+        setPopularDishes: (state, action) => {
+            state.popularDishes = action.payload;
         },
-         setNewDishes: (sate, action) => {
-            sate.newDishes = action.payload;
+         setNewDishes: (state, action) => {
+            state.newDishes = action.payload;
         },
-          setTopUsers: (sate, action) => {
-            sate.topUsers = action.payload;
+          setTopUsers: (state, action) => {
+            state.topUsers = action.payload;
         },
     }
 });
