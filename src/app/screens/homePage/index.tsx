@@ -24,8 +24,9 @@ const popularDishesRetriever = createSelector(retrievePopularDishes,
 );
 
 export default function HomePage() {
-  const { setPopularDishes } = actionDispatch(useDispatch());
-  const { popularDishes } = useSelector(popularDishesRetriever);
+  const { setPopularDishes } = actionDispatch(useDispatch()); // reduxga borib slicedagi metodlarni malumotni bog'lashni aytadi
+
+  const { popularDishes } = useSelector(popularDishesRetriever); //usedispach store bilan bog'lab beradi
   // Selector: Store => Data
   useEffect(() => {
     // Backend sever data request => Data
