@@ -13,7 +13,7 @@ class MemberService {
            const url = this.path + "/member/top-users";
            const result = await axios.get(url);
            console.log("getTopUsers:", result);
-            return [];
+            return result.data;
         } catch (err) {
            console.log("Error,getTopUsers:", err);
            throw err;
