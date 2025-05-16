@@ -1,12 +1,31 @@
 import React from "react";
 import {  Badge, Box, Button, CardContent, Container, Input, Stack } from "@mui/material";
-import  MonetizationOnIcon  from "@mui/icons-material/MonetizationOn";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import {RemoveRedEye} from "@mui/icons-material";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import  ArrowBackIcon  from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import {RemoveRedEye} from "@mui/icons-material";
+
+import { useDispatch, useSelector } from "react-redux";
+import { Dispatch } from "@reduxjs/toolkit";
 import SearchBar from "./saerch";
+import { createSelector } from "reselect";
+import { retrieveProducts } from "./selector";
+import { setProducts } from "./slice";
+import { Product } from "../../../lib/types/product";
+
+/** REDUX SLICE & SELECTOR */
+const actionDispatch = (dispatch: Dispatch) => ({
+ setProducts: (data: Product[]) => dispatch(setProducts(data)),
+  
+});
+
+const productsRetriever = createSelector(
+  retrieveProducts,
+  (products) => ({ products }) 
+);
+
 
  const products = [
     {prooductName: "Cutlet", imgPath:"/img/cutlet.webp"},
