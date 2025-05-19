@@ -170,7 +170,6 @@ export default function Products(props: ProductsProps) {
                             <img className = "product-img" src={imagePath} alt="" />
                             <div className="product-size" style={{position:"absolute"}}>{sizeVolume}</div>
                             <Button className={"shop-btn"} onClick={(e) => {
-                                console.log("BUTTON PRESSED!");
                                 onAdd({
                                     _id: product._id,
                                     quantity: 1,
