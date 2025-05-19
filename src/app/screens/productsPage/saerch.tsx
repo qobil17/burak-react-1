@@ -5,6 +5,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import { Typography } from "@mui/material";
 
+
+
+
 const Search = styled("div")(({ theme }) => ({
   borderRadius: "30px",
   backgroundColor: "white",
@@ -41,16 +44,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+
 export default function SearchBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
         <Search>
           <StyledInputBase
             placeholder="Type here . . ."
-            inputProps={{ "aria-label": "search" }}
+          inputProps={{ "aria-label": "search" }}
           />
           <SearchButton>
-          <IconButton>
+          <IconButton >
             <Typography>Search</Typography>
             <SearchIcon />
           </IconButton>

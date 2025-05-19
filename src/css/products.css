@@ -39,6 +39,43 @@
     margin-right: 130px;
 }
 
+.products-page .products .searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+  margin: 0 auto;
+  margin-right: 70px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.products-page .products .searchbar input {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-radius: 30px 0 0 30px;
+}
+
+.products-page .products .searchbar button {
+  padding: 12px 20px;
+  border: none;
+  background-color: #d7b586;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 0 30px 30px 0;
+  transition: background-color 0.3s ease;
+}
+
+.products-page .products .searchbar button:hover {
+  background-color: #d7b586;
+}
+
 .products-page .products .dishes-filter-section {
 display: flex;
 flex-direction: row;
@@ -74,10 +111,11 @@ margin-top: 40px;
     -ms-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
-    margin-left: 50px;    
+    margin-left: 40px;    
 }
 
 .products-page .products  .cards-frame{
+  margin-left: 10px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -305,6 +343,24 @@ margin-top: 40px;
     letter-spacing: 1.44px;
     color: #000;
 }
+
+.products-page .products .no-data {
+  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px; /* Yoki kerakli balandlik */
+  font-family: "Roboto Serif";
+  font-size: 32px;
+  font-weight: 600;
+  color: #999;
+  background-color: transparent;
+  text-align: center;
+  margin-top: 50px;
+}
+
+
+
 
 
 
