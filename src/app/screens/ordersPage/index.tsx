@@ -14,8 +14,10 @@ import { Order, OrderInquiry } from "../../../lib/types/order";
 import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderService from "../../services/OrderService";
 import { useGlobals } from "../../hooks/useGlobals";
+import { useHistory } from "react-router-dom";
 import "../../../css/order.css";
-
+import { serverApi } from "../../../lib/config";
+import { MemberType } from "../../../lib/enums/member.enum";
 
   const actionDispatch = (dispatch: Dispatch) => ({
     setPausedOrders: (data: Order[]) => dispatch(setPausedOrders(data)),
@@ -25,7 +27,8 @@ import "../../../css/order.css";
   
 export default function OrdersPage() {
   const { setPausedOrders, setProcessorders, setFinishedOrders } = actionDispatch(useDispatch());
-  const { orderBuilder} = useGlobals();
+  const { orderBuilder, authMember } = useGlobals();
+  const history = useHistory();
   const [value, setValue] = useState("1");
   const [orderInquiry, setOrderInquiry] = useState < OrderInquiry > ({
     page: 1,
@@ -56,8 +59,8 @@ export default function OrdersPage() {
 
   const handleChange = (e: SyntheticEvent, newValue: string) => {
     setValue(newValue)
-  }
-
+  };
+if (!authMember) history.push("/");
   return (
     <div className={"order-page"}>
       <Container className="order-container">
@@ -91,23 +94,23 @@ export default function OrdersPage() {
             <Box className={"member-box"}>
               <div className={"order-user-img"}>
                 <img 
-                  src={"/img/joseph.jpg"}
+                  src={ authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` : "/icons/default-user.svg"}
                   className={"order-user-avatar"}
                   alt=""
                 />
                 <div className={"order-user-icon-box"}>
                   <img
-                    src={"/icons/user-badge.svg"}
+                    src={authMember?.memberType === MemberType.RESTAURANT ? "/icons/restaurant.svg" : "/icons/user-badge.svg"}
                     className={"order-user-prof-img"}
                     alt=""
                   />
                 </div>
               </div>
               <span className={"order-user-name"}>
-                Joseph
+                {authMember?.memberNick}
               </span>
               <span className={"order-user-prof"}>
-                User
+                { authMember?.memberType}
               </span>
             </Box>
             <Box className={"liner"}></Box>
@@ -116,7 +119,7 @@ export default function OrdersPage() {
                 <LocationOnIcon />
               </div>
               <div className={"spec-address-txt"}>
-                South Korea, Deso
+                { authMember?.memberAdress ? authMember?.memberAdress : "Do not exist"}
               </div>
             </Box>
           </Box>
